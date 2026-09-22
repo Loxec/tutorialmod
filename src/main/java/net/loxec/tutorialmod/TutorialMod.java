@@ -2,6 +2,8 @@ package net.loxec.tutorialmod;
 
 import net.fabricmc.api.ModInitializer;
 
+import net.loxec.tutorialmod.block.ModBlocks;
+import net.loxec.tutorialmod.item.ModItems;
 import net.minecraft.util.Identifier;
 
 import org.slf4j.Logger;
@@ -13,6 +15,10 @@ public class TutorialMod implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+
+		ModItems.registerModItems();
+		ModBlocks.registerModBlocks();
+
 	}
 
 	public static Identifier id(String path) {
