@@ -16,39 +16,33 @@ public class ModBlocks {
 
     public static final Block PINK_GARNET_BLOCK = registerBlock("pink_garnet_block",
             new Block(AbstractBlock.Settings.create()
-                    .sounds(BlockSoundGroup.AMETHYST_BLOCK)
+                    .strength(4f)
                     .requiresTool()
-                    .strength(4f)));
+                    .sounds(BlockSoundGroup.AMETHYST_BLOCK)));
 
     public static final Block RAW_PINK_GARNET_BLOCK = registerBlock("raw_pink_garnet_block",
             new Block(AbstractBlock.Settings.create()
-                    .sounds(BlockSoundGroup.AMETHYST_BLOCK)
+                    .strength(2f)
                     .requiresTool()
-                    .strength(2f)));
+                    .sounds(BlockSoundGroup.AMETHYST_BLOCK)));
 
     public static final Block TEST_BLOCK = registerBlock("test_block",
             new Block(AbstractBlock.Settings.create()
-                    .sounds(BlockSoundGroup.LODESTONE)
                     .breakInstantly()
+                    .sounds(BlockSoundGroup.LODESTONE)
                     .luminance(state -> 15)));
 
     private static Block registerBlock(String name, Block block){
-        registerBlockItem(name,block);
+        registerBlockItem(name, block);
         return Registry.register(Registries.BLOCK,Identifier.of(TutorialMod.MOD_ID,name),block);
     }
 
     private static void registerBlockItem(String name, Block block){
-        Registry.register(Registries.ITEM, Identifier.of(TutorialMod.MOD_ID,name),new BlockItem(block,new Item.Settings()));
+        Registry.register(Registries.ITEM, Identifier.of(TutorialMod.MOD_ID,name), new BlockItem(block,new Item.Settings()));
     }
 
     public static void registerModBlocks(){
         TutorialMod.LOGGER.info("Registering mod blocks for: " + TutorialMod.MOD_ID);
-
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> {
-            entries.add(PINK_GARNET_BLOCK);
-            entries.add(RAW_PINK_GARNET_BLOCK);
-            entries.add(TEST_BLOCK);
-        });
     }
 
 }

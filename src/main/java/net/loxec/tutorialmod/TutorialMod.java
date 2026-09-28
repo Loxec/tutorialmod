@@ -3,6 +3,7 @@ package net.loxec.tutorialmod;
 import net.fabricmc.api.ModInitializer;
 
 import net.loxec.tutorialmod.block.ModBlocks;
+import net.loxec.tutorialmod.item.ModItemGroups;
 import net.loxec.tutorialmod.item.ModItems;
 import net.minecraft.util.Identifier;
 
@@ -15,6 +16,8 @@ public class TutorialMod implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+
+		ModItemGroups.registerModItemGroups();
 
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
